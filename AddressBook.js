@@ -202,3 +202,20 @@ let sortedArray = new Array();
 contacts.forEach(contact => sortedArray.push(contact.toString()));
 sortedArray.sort();
 console.log(sortedArray);
+
+//UC12:Sort contact by city,state or zip
+var sortByCityArray = contacts;
+var sortByStateArray = contacts;
+var sortByZipArray = contacts;
+//localeCompare() method checks if a given string comes before,after, or is same as other string in sort order.
+//Sort by city
+sortByCityArray.sort((a,b) => a.city.localeCompare(b.city));
+console.log("Contacts sorted by city:")
+sortByCityArray.forEach(contact=>console.log(contact.toString()));
+//Sort by state
+sortByStateArray.sort((a,b) => a.state.localeCompare(b.state));
+console.log("Contacts sorted by state:")
+sortByStateArray.forEach(contact=>console.log(contact.toString()));
+sortByZipArray.sort((a,b) => a.zip.localeCompare(b.zip));
+console.log("Contacts sorted by zip:")
+sortByZipArray.forEach(contact=>console.log(contact.toString()));
