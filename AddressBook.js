@@ -109,6 +109,7 @@ function AddContact(firstName,lastName,address,city,state,zip,mobileNumber,email
     contacts.push(contact);
 }
 AddContact('Teju','Kulkarni','Chembur','Mumbai','Maharashtra','400071','91 9920275347','teju_1234@gmail.com');
+AddContact('Roopa','Rajkumar','Badgeri','Hubli','Karnataka','657890','91 9949897800','roopark1234@gmail.com');
 console.log(contacts.toString());
 
 //Find a contact and update it using first name
@@ -133,3 +134,16 @@ if(contactindex != -1){
 }else{
     console.log("Sorry....contact not foud");
 }
+
+//deleting a contact from array using name
+function deleteContactByName(firstName){
+    for(let i =0; i < contacts.length; i++){
+        if(contacts[i].firstName == firstName){
+            //removes the contact from array
+            contacts.pop(i);
+            console.log(contacts.toString());
+        }
+    }
+}
+deleteContactByName('Roopa');
+console.log("Contact deleted successfully");
