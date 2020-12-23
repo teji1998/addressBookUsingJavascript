@@ -96,11 +96,11 @@ class ContactDetails {
         toString(){
             return "FirstName: "+this.firstName+",LastName: "+this.lastName+",Address: "+this.address+",City: "
                     +this.city+",State: "+this.state+",Zip: "+this.zip+",MobileNumber: "+this.mobileNumber+",EmailId: "
-                    +this.emailId;
+                    +this.emailId+ "\n";
         }    
 }
 
-//Add a contact into array
+//UC3:Add a contact into array
 console.log("To add a contact : ")
 let contacts = new Array();
 function AddContact(firstName,lastName,address,city,state,zip,mobileNumber,emailId) {
@@ -117,7 +117,7 @@ AddContact('Teju','Kulkarni','Chembur','Mumbai','Maharashtra','400071','91 99202
 AddContact('Roopa','Rajkumar','Badgeri','Hubli','Karnataka','657890','91 9949897800','roopark1234@gmail.com');
 console.log(contacts.toString());
 
-//Find a contact and update it using first name
+//UC7:Find a contact and update it using first name
 function obtainingContactWithName(firstName){
     for(let i = 0; i < contacts.length; i++){
         if(contacts[i].firstName == firstName){
@@ -127,7 +127,7 @@ function obtainingContactWithName(firstName){
     return -1;
 }
 
-//editing a contact using first name
+//UC4:editing a contact using first name
 let contactindex=obtainingContactWithName('Teju');
 if(contactindex != -1){
     console.log("Before Updation : ");
@@ -141,7 +141,7 @@ if(contactindex != -1){
     console.log("Sorry....contact not foud");
 }
 
-//deleting a contact from array using name
+//UC5:deleting a contact from array using name
 function deleteContactByName(firstName){
     for(let i =0; i < contacts.length; i++){
         if(contacts[i].firstName == firstName){
@@ -154,9 +154,21 @@ function deleteContactByName(firstName){
 //deleteContactByName('Roopa');
 //console.log("Contact deleted successfully");
 
-//UC6 count people
-console.log("Number of persons in AddressBook");
+//UC6:count people
 //using reduce method
 let count = contacts.reduce(((count) => {count +=1;return count;}),0);
 console.log("Number of persons in adressBook is : " +count);
 
+//UC8:to search by city or state
+function SearchCityOrState(cityOrState){
+    //using filter method
+    if(contacts.filter((obj => obj.city == cityOrState)||(obj => obj.state == cityOrState))){
+        console.log(contacts.toString());
+    }
+}
+//search for city
+console.log("Searching with city");
+SearchCityOrState('Mumbai');
+//search for state
+console.log("Searching with state");
+SearchCityOrState('Karnataka');
