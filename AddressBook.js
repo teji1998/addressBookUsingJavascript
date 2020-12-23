@@ -33,7 +33,7 @@ class ContactDetails {
     
     get address(){return this._address;}
     set address(address){
-        let addressRegex=RegExp("^[A-Z0-9]{4,}$");
+        let addressRegex=RegExp("^[A-Za-z0-9]{4,}$");
         if(addressRegex.test(address)){
             this._address=address;
         }
@@ -85,11 +85,26 @@ class ContactDetails {
 
     get emailId(){return this._emailId;}
     set emailId(emailId){
-        let emailRegex="^[0-9a-z]+[+_.-]?[0-9a-z]+[@][0-9a-z]+[.][a-z]{2,}[.]?[a-z]+$";
+        let emailRegex=RegExp("^[0-9a-z]+[+_.-]?[0-9a-z]+[@][0-9a-z]+[.][a-z]{2,}[.]?[a-z]+$");
         if(emailRegex.test(emailId)){
             this._emailId=emailId;
         }else{
             throw 'Email id is invalid';
         }
     }
+
+        toString(){
+            return "FirstName: "+this.firstName+",LastName: "+this.lastName+",Address: "+this.address+",City: "
+                    +this.city+",State: "+this.state+",Zip: "+this.zip+",MobileNumber: "+this.mobileNumber+",EmailId: "
+                    +this.emailId;
+        }    
+    }
+console.log("To add a contact : ")
+let contacts = new Array();
+function AddContact(firstName,lastName,address,city,state,zip,mobileNumber,emailId) {
+    let contact = new ContactDetails(firstName,lastName,address,city,state,zip,mobileNumber,emailId);
+    //contact added into array
+    contacts.push(contact);
 }
+AddContact('Teju','Kulkarni','Chembur','Mumbai','Maharashtra','400071','91 9920275347','teju_1234@gmail.com');
+console.log(contacts.toString());
