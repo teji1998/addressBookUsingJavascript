@@ -98,7 +98,9 @@ class ContactDetails {
                     +this.city+",State: "+this.state+",Zip: "+this.zip+",MobileNumber: "+this.mobileNumber+",EmailId: "
                     +this.emailId;
         }    
-    }
+}
+
+//Add a contact into array
 console.log("To add a contact : ")
 let contacts = new Array();
 function AddContact(firstName,lastName,address,city,state,zip,mobileNumber,emailId) {
@@ -108,3 +110,26 @@ function AddContact(firstName,lastName,address,city,state,zip,mobileNumber,email
 }
 AddContact('Teju','Kulkarni','Chembur','Mumbai','Maharashtra','400071','91 9920275347','teju_1234@gmail.com');
 console.log(contacts.toString());
+
+//Find a contact and update it using first name
+function obtainingContactWithName(firstName){
+    for(let i = 0; i < contacts.length; i++){
+        if(contacts[i].firstName == firstName){
+            return i;
+        }
+    }
+    return -1;
+}
+//editing a contact using first name
+let contactindex=obtainingContactWithName('Teju');
+if(contactindex != -1){
+    console.log("Before Updation : ");
+    console.log(contacts.toString());
+    contacts[contactindex].firstName='Tejaswini';
+    contacts[contactindex].mobileNumber='91 9980732345';
+    contacts[contactindex].zip='456789'
+    console.log("Contacts after updation");
+    console.log(contacts.toString());
+}else{
+    console.log("Sorry....contact not foud");
+}
