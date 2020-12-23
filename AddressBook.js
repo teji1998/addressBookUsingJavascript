@@ -104,6 +104,7 @@ class ContactDetails {
 console.log("To add a contact : ")
 let contacts = new Array();
 function AddContact(firstName,lastName,address,city,state,zip,mobileNumber,emailId) {
+    
     let contact = new ContactDetails(firstName,lastName,address,city,state,zip,mobileNumber,emailId);
     //contact added into array
     contacts.push(contact);
@@ -121,6 +122,7 @@ function obtainingContactWithName(firstName){
     }
     return -1;
 }
+
 //editing a contact using first name
 let contactindex=obtainingContactWithName('Teju');
 if(contactindex != -1){
@@ -145,5 +147,12 @@ function deleteContactByName(firstName){
         }
     }
 }
-deleteContactByName('Roopa');
-console.log("Contact deleted successfully");
+//deleteContactByName('Roopa');
+//console.log("Contact deleted successfully");
+
+//UC6 count people
+console.log("Number of persons in AddressBook");
+//using reduce method
+let count = contacts.reduce(((count) => {count +=1;return count;}),0);
+console.log("Number of persons in adressBook is : " +count);
+
