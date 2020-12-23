@@ -185,3 +185,13 @@ ViewCityOrState('Hubli');
 //View By state
 console.log("searching with state");
 ViewCityOrState('Maharashtra');
+
+//UC10 get No.of persons by city or state
+function getCountByCity(city) {
+    return contacts.filter(x => x.city == city).reduce((countOfContact, x) => countOfContact += 1, 0);
+}
+function getCountByState(state) {
+    return contacts.filter(x => x.state == state).reduce((countOfContact, x) => countOfContact += 1, 0);
+}
+console.log("Number of contacts present in the city:  " + getCountByCity("Hubli"));
+console.log("Number of contacts present in the state: " + getCountByState("Maharashtra"));
